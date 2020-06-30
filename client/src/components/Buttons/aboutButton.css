@@ -1,0 +1,29 @@
+.startBtn {
+  position: relative;
+  text-decoration: none;
+  background-color: rgb(64, 113, 177);
+  display: block;
+  margin-bottom: 1.5rem;
+  max-height: 5rem;
+  border: 3px solid rgb(192, 163, 16);
+  border-radius: 45%;
+  box-shadow: 2px 9px 0px rgb(64, 113, 177), 12px 19px 5px rgba(0, 0, 0, 0.7);
+  /* min-width: auto; */
+  outline: none;
+  transition: all 0.1s ease;
+  /* padding: 0 1.5rem; */
+  height: 5vh;
+  width: 20vw;
+}
+
+.startBtn:active {
+  box-shadow: 0px 3px 0px rgba(230, 191, 0, 1), 0px 3px 6px rgba(0, 0, 0, 0.9);
+  position: relative;
+  top: 6px;
+}
+
+.about:hover {
+  filter: drop-shadow(5px 5px 5px #e6bf00);
+  -webkit-filter: drop-shadow(5px 5px 5px #e6bf00);
+  cursor: pointer;
+}
