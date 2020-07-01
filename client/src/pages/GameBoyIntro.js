@@ -22,15 +22,13 @@ const useStyles = makeStyles((theme) => ({
     bottom: "2rem",
     width: "25vw",
     outline: "none",
+    backgroundColor: "whitesmoke",
+    borderRadius: "5%",
     "&:hover": {
       filter:
         "drop-shadow(5px 5px 5px #e6bf00) drop-shadow(-5px -5px 5px #e6bf00)",
       cursor: "pointer",
     },
-  },
-  image: {
-    width: "100%",
-    height: "auto",
   },
 }));
 
@@ -46,12 +44,10 @@ const GameBoyIntro = () => {
       justify="center"
     >
       <Link to={paths.explore}>
-        <button className={classes.continue}>
-          <img
-            src="/assets/images/buttons/Continue_Button.png"
-            className={classes.image}
-          />
-        </button>
+        <img
+          src="/assets/images/buttons/Continue_Button.png"
+          className={classes.continue}
+        />
       </Link>
       <video autoPlay className={classes.video}>
         <source

@@ -360,6 +360,10 @@ $dark-black: #111111;
   border: $black solid 1px;
 }
 
+#blue-button-left:hover {
+  filter: drop-shadow(5px 5px 5px #e6bf00) drop-shadow(-5px -5px 5px #e6bf00);
+}
+
 #green-button-left {
   @include linear-gradient($green, $dark-green);
   position: absolute;
@@ -702,6 +706,10 @@ $dark-black: #111111;
   border: darken($grey, 50%) solid 1px;
 }
 
+#left-cross-button:hover {
+  filter: drop-shadow(5px 5px 5px #e6bf00) drop-shadow(-5px -5px 5px #e6bf00);
+}
+
 #right-cross-button {
   @include linear-gradient($grey, $charcoal);
   position: absolute;
@@ -720,6 +728,10 @@ $dark-black: #111111;
   @include linear-gradient(darken($grey, 50%), $grey);
   box-shadow: 0vw 0vw 10vw 0.182vw darken($grey, 40%) inset;
   border: darken($grey, 50%) solid 1px;
+}
+
+#right-cross-button:hover {
+  filter: drop-shadow(5px 5px 5px #e6bf00) drop-shadow(-5px -5px 5px #e6bf00);
 }
 
 #rightT {
