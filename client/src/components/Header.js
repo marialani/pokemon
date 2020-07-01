@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Grid from "@material-ui/core/Grid";
 import { Link as RouterLink } from "react-router-dom";
 import { AppBar, IconButton, Toolbar, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,17 +7,6 @@ import NavMenu from "./NavMenu";
 import Login from "./Login";
 
 const useStyles = makeStyles((theme) => ({
-  // appBar: {
-  //   background:
-  //     "radial-gradient(circle, white 10%, whitesmoke 25%, silver 85%, grey 100%)",
-  //   boxShadow: "0 1rem 1rem rgba(0,0,0,0.3)",
-  //   zIndex: "0",
-  // },
-  // appBarHome: {
-  // background: "transparent",
-  // boxShadow: "0 1rem 1rem rgba(0,0,0,0.3)",
-  // zIndex: "0",
-  // },
   toolbar: {
     width: "100%",
     padding: "0.75rem",
@@ -61,14 +49,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({ appBarStyling, menuIconStyling }) {
+export default function Header({ appBarStyling }) {
   const classes = useStyles();
 
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    // <Grid component="header" item xs={12}>
-    // {/* // grid item xs={12} container */}
     <AppBar
       position="static"
       style={{
@@ -96,6 +82,5 @@ export default function Header({ appBarStyling, menuIconStyling }) {
         </div>
       </Toolbar>
     </AppBar>
-    // {/* </Grid> */}
   );
 }

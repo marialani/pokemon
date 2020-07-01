@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   loginImg: {
     cursor: "pointer",
     maxWidth: "80%",
+    [theme.breakpoints.up("md")]: {
+      maxWidth: "60%",
+    },
     "&:hover": {
       WebkitFilter: "drop-shadow(5px 5px 5px #e6bf00)",
       filter: "drop-shadow(5px 5px 5px #e6bf00)",
@@ -91,8 +94,8 @@ export default function SpringModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="spring-modal-title">Login modal</h2>
-            <p id="spring-modal-description">Content tbc.</p>
+            <h2 id="spring-modal-title">Login Modal</h2>
+            <p id="spring-modal-description">content tbc.</p>
           </div>
         </Fade>
       </Modal>

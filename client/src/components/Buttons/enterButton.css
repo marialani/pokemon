@@ -8,21 +8,24 @@
   border: 3px solid rgb(34, 86, 155);
   border-radius: 45%;
   box-shadow: 2px 9px 0px rgb(64, 113, 177), 12px 19px 5px rgba(0, 0, 0, 0.7);
-  /* min-width: auto; */
   outline: none;
   transition: all 0.1s ease;
-  /* padding: 0 1.5rem; */
   animation: glowing 1300ms infinite;
-  /* added */
   height: 15vh;
   width: 30vw;
+}
+
+@media only screen and (min-width: 768px) {
+  .startBtn2 {
+    max-width: 20vw;
+    height: 15vh;
+  }
 }
 
 .startBtn2:active {
   box-shadow: 0px 3px 0px rgba(230, 191, 0, 1), 0px 3px 6px rgba(0, 0, 0, 0.9);
   position: relative;
   top: 6px;
-  /* background-color: rgba(230, 191, 0, 1); */
 }
 
 .enter:hover {
@@ -34,26 +37,20 @@
 @keyframes glowing {
   0% {
     background-color: rgba(230, 191, 0, 1);
-    /* box-shadow: 2px 9px 0px rgb(64, 113, 177), 12px 19px 5px rgba(0, 0, 0, 0.7); */
   }
   20% {
     background-color: rgb(238, 218, 118);
-    /* box-shadow: 2px 9px 0px rgb(92, 157, 241), 12px 19px 5px rgba(0, 0, 0, 0.7); */
   }
   40% {
     background-color: rgb(240, 232, 196);
-    /* box-shadow: 2px 9px 0px rgb(92, 157, 241), 12px 19px 5px rgba(0, 0, 0, 0.7); */
   }
   60% {
     background-color: rgb(235, 223, 168);
-    /* box-shadow: 2px 9px 0px rgb(92, 157, 241), 12px 19px 5px rgba(0, 0, 0, 0.7); */
   }
   80% {
     background-color: rgb(238, 218, 118);
-    /* box-shadow: 2px 9px 0px rgb(92, 157, 241), 12px 19px 5px rgba(0, 0, 0, 0.7); */
   }
   100% {
     background-color: rgba(230, 191, 0, 1);
-    /* box-shadow: 2px 9px 0px rgb(64, 113, 177), 12px 19px 5px rgba(0, 0, 0, 0.7); */
   }
 }

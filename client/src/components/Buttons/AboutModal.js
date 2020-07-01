@@ -65,12 +65,7 @@ export default function AboutModal({ logMeIn }) {
 
   return (
     <div>
-      <button
-        className="startBtn"
-        onClick={handleOpen}
-        // style={{ display: "contents" }}
-      >
-        {/* About */}
+      <button className="startBtn" onClick={handleOpen}>
         <img
           className="about"
           src="https://i.imgur.com/I7ihXYa.png"
@@ -100,7 +95,7 @@ export default function AboutModal({ logMeIn }) {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id="spring-modal-title">About Modal</h2>
-            <p id="spring-modal-description">Content tbc.</p>
+            <p id="spring-modal-description">content tbc.</p>
           </div>
         </Fade>
       </Modal>

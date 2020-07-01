@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   divider: {
     backgroundColor: "grey",
   },
-  menu: {
+  hover: {
     "&:hover": {
       WebkitFilter:
         "drop-shadow(5px 5px 5px #e6bf00) drop-shadow(-5px -5px 5px #e6bf00)",
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function NavMenu({ menuIconStyling }) {
+export default function NavMenu() {
   const classes = useStyles();
 
   const [state, setState] = React.useState({
@@ -178,7 +178,11 @@ export default function NavMenu({ menuIconStyling }) {
 
   return (
     <div style={{ width: "15vw" }}>
-      <IconButton onClick={toggleDrawer("left", true)} aria-label="menu">
+      <IconButton
+        onClick={toggleDrawer("left", true)}
+        aria-label="menu"
+        className={classes.hover}
+      >
         <MenuIcon
           style={{
             width: "3rem",

@@ -8,12 +8,17 @@
   border: 3px solid rgb(192, 163, 16);
   border-radius: 45%;
   box-shadow: 2px 9px 0px rgb(64, 113, 177), 12px 19px 5px rgba(0, 0, 0, 0.7);
-  /* min-width: auto; */
   outline: none;
   transition: all 0.1s ease;
-  /* padding: 0 1.5rem; */
   height: 5vh;
   width: 20vw;
+}
+
+@media only screen and (min-width: 768px) {
+  .startBtn {
+    max-width: 15vw;
+    /* height: 10vh; */
+  }
 }
 
 .startBtn:active {
