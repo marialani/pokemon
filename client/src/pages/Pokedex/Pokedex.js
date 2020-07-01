@@ -16,7 +16,7 @@ const Pokedex = () => {
       "assets/images/img/pokedex/pokemon/" + pokemonList[0] + ".jpg"
     );
   }
-
+  // nb - cb functions to avoid batch calls
   function handlePlusPokemonClick() {
     if (number === 151) {
       setNumber(1);
@@ -41,9 +41,32 @@ const Pokedex = () => {
           ".jpg"
       );
     }
-    // setPokemonScreen(
-    //   "assets/images/img/pokedex/pokemon/" + pokemonList[0] + ".jpg"
-    // );
+  }
+
+  function handleMinusPokemonClick() {
+    if (number === 1) {
+      setNumber(151);
+      setPokemonTextHeading(pokemonList[150]);
+      setPokemonTextBody(pokemonListDescription[150]);
+      setPokemonScreen(
+        "assets/images/img/pokedex/pokemon/" + pokemonList[150] + ".jpg"
+      );
+    } else {
+      setNumber((number) => number - 1);
+      setPokemonTextHeading(
+        pokemonList[pokemonList.indexOf(pokemonTextHeading) - 1]
+      );
+      setPokemonTextBody(
+        pokemonListDescription[
+          pokemonListDescription.indexOf(pokemonTextBody) - 1
+        ]
+      );
+      setPokemonScreen(
+        "assets/images/img/pokedex/pokemon/" +
+          pokemonList[pokemonList.indexOf(pokemonTextHeading) - 1] +
+          ".jpg"
+      );
+    }
   }
 
   return (
@@ -134,7 +157,7 @@ const Pokedex = () => {
           <div id="yellow-button-right"></div>
           <div id="green-button-right"></div>
           <div id="orange-button-right"></div>
-          <div id="left-cross-button">
+          <div id="left-cross-button" onClick={handleMinusPokemonClick}>
             <div id="leftT"></div>
           </div>
           <div id="right-cross-button" onClick={handlePlusPokemonClick}>
