@@ -60,7 +60,12 @@ const useStyles = makeStyles((theme) => ({
   fab: {
     position: "absolute",
     top: "5rem",
-    right: "3rem",
+    right: "1rem",
+    background:
+      "radial-gradient(circle, white 10%, whitesmoke 25%, silver 85%, grey 100%)",
+
+    // maxWidth: "5vw",
+    // height: "auto",
   },
   fabGreen: {
     color: theme.palette.common.white,
@@ -97,40 +102,70 @@ export default function FloatingActionButtonZoom() {
 
   const fabs = [
     {
-      color: "primary",
+      color: "yellow",
       className: classes.fab,
-      icon: <AddIcon />,
-      label: "Add",
+      icon: (
+        <img
+          src="assets/images/homepage/icons/card-match.png"
+          style={{ maxWidth: "6vh" }}
+        />
+      ),
+      label: "pokemon cards",
     },
     {
-      color: "secondary",
+      color: "yellow",
       className: classes.fab,
-      icon: <EditIcon />,
-      label: "Edit",
+      icon: (
+        <img
+          src="assets/images/homepage/pokemon-card.jpg"
+          style={{ maxWidth: "3.4vh" }}
+        />
+      ),
+      label: "pokemon card",
     },
     {
-      color: "inherit",
+      color: "yellow",
       className: clsx(classes.fab, classes.fabGreen),
-      icon: <UpIcon />,
-      label: "Expand",
+      icon: (
+        <img
+          src="assets/images/homepage/icons/outline-icon.png"
+          style={{ maxWidth: "6vh" }}
+        />
+      ),
+      label: "who's that pokemon",
     },
     {
-      color: "primary",
+      color: "yellow",
       className: classes.fab,
-      icon: <AddIcon />,
-      label: "bl",
+      icon: (
+        <img
+          src="assets/images/homepage/icons/pokedex-icon.png"
+          style={{ maxWidth: "2.8vh" }}
+        />
+      ),
+      label: "pokedex",
     },
     {
-      color: "secondary",
+      color: "yellow",
       className: classes.fab,
-      icon: <EditIcon />,
-      label: "bla",
+      icon: (
+        <img
+          src="assets/images/homepage/icons/fight-icon.png"
+          style={{ maxWidth: "3.6vh" }}
+        />
+      ),
+      label: "pokemon fight",
     },
     {
-      color: "inherit",
+      color: "yellow",
       className: clsx(classes.fab, classes.fabGreen),
-      icon: <UpIcon />,
-      label: "blah",
+      icon: (
+        <img
+          src="assets/images/homepage/icons/quest-icon.png"
+          style={{ maxWidth: "3.8vh" }}
+        />
+      ),
+      label: "pokemon quest",
     },
   ];
 
@@ -162,7 +197,7 @@ export default function FloatingActionButtonZoom() {
       </AppBar>
       {fabs.map((fab, index) => (
         <Zoom
-          key={fab.color}
+          key={index}
           in={value === index}
           timeout={transitionDuration}
           style={{
@@ -188,22 +223,38 @@ export default function FloatingActionButtonZoom() {
         className={classes.tabBar}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+          <h5>TRADING CARDS</h5>
+          <p>View all of the original pokemon cards</p>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          <h5>CARD MATCH</h5>
+          <p>
+            Find all of the matching pokemon card pairings before time runs out
+          </p>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          <h5>WHO'S THAT POKEMON?</h5>
+          <p>
+            A guessing game where you pick the correct pokemon from a list of
+            options
+          </p>
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-          Item four
+          <h5>POKEDEX</h5>
+          <p>A mini encyclopedia housing the first generation of pokemon</p>
         </TabPanel>
         <TabPanel value={value} index={4} dir={theme.direction}>
-          Item five
+          <h5>POKEMON BATTLE</h5>
+          <p>
+            Choose your pokemon and go up against another trainer to win prizes
+          </p>
         </TabPanel>
         <TabPanel value={value} index={5} dir={theme.direction}>
-          Item six
+          <h5>POKEMON QUEST</h5>
+          <p>
+            Become a world class pokemon trainer. Choose your starter pokemon
+            and travel through the map to gain the coveted title
+          </p>
         </TabPanel>
       </SwipeableViews>
     </div>

@@ -54,6 +54,11 @@
   text-align: center;
 }
 
+.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock {
+  font-weight: 800;
+  color: whitesmoke;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -12,8 +12,16 @@ import { Link } from "react-router-dom";
 import paths from "../constants/paths";
 
 const useStyles = makeStyles({
-  list: {
-    width: 250,
+  listItem: {
+    maxWidth: "5vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    // width: 250,
+  },
+  listItemText: {
+    paddingLeft: "1rem",
+    fontWeight: "900",
   },
   fullList: {
     width: "auto",
@@ -55,7 +63,6 @@ export default function NavMenu() {
 
   const sideList = (side) => (
     <div
-      className={classes.list}
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
@@ -78,13 +85,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.explore}>
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/icons/explore-icon.png"
-                style={{ maxWidth: "4vw" }}
+                style={{ maxWidth: "6.5vh" }}
               />
             </ListItemIcon>
-            <ListItemText>EXPLORE</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              EXPLORE
+            </ListItemText>
           </ListItem>
         </Link>
       </List>
@@ -92,13 +101,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.tradingCards}>
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/icons/card-match.png"
-                style={{ maxWidth: "6vw" }}
+                style={{ maxWidth: "6vh" }}
               />
             </ListItemIcon>
-            <ListItemText>TRADING CARDS</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              TRADING CARDS
+            </ListItemText>
           </ListItem>
         </Link>
       </List>
@@ -106,13 +117,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.cardMatch}>
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/pokemon-card.jpg"
-                style={{ maxWidth: "3.5vw" }}
+                style={{ maxWidth: "3.4vh" }}
               />
             </ListItemIcon>
-            <ListItemText>CARD MATCH</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              CARD MATCH
+            </ListItemText>
           </ListItem>
         </Link>
       </List>
@@ -120,13 +133,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.whosThatPokemon}>
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/icons/outline-icon.png"
-                style={{ maxWidth: "5vw" }}
+                style={{ maxWidth: "6vh" }}
               />
             </ListItemIcon>
-            <ListItemText>WHO'S THAT POKÉMON?</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              WHO'S THAT POKÉMON?
+            </ListItemText>
           </ListItem>
         </Link>
       </List>
@@ -134,13 +149,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.pokedex}>
           <ListItem>
-            <ListItemIcon style={{ display: "flex", justifyContent: "center" }}>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/icons/pokedex-icon.png"
-                style={{ maxWidth: "3vw" }}
+                style={{ maxWidth: "2.8vh" }}
               />
             </ListItemIcon>
-            <ListItemText>POKÉDEX</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              POKÉDEX
+            </ListItemText>
           </ListItem>
         </Link>
       </List>
@@ -148,13 +165,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.pokemonBattle}>
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/icons/fight-icon.png"
-                style={{ maxWidth: "5vw" }}
+                style={{ maxWidth: "3.6vh" }}
               />
             </ListItemIcon>
-            <ListItemText>POKÉMON BATTLE</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              POKÉMON BATTLE
+            </ListItemText>
           </ListItem>
         </Link>
       </List>
@@ -162,13 +181,15 @@ export default function NavMenu() {
       <List>
         <Link className={classes.link} to={paths.pokemonQuest}>
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItem}>
               <img
                 src="assets/images/homepage/icons/quest-icon.png"
-                style={{ maxWidth: "4vw" }}
+                style={{ maxWidth: "3.8vh" }}
               />
             </ListItemIcon>
-            <ListItemText>POKÉMON QUEST</ListItemText>
+            <ListItemText className={classes.listItemText}>
+              POKÉMON QUEST
+            </ListItemText>
           </ListItem>
         </Link>
       </List>

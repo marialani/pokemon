@@ -28,6 +28,7 @@ export default (props) => {
     "/pokemon-battle": "https://i.imgur.com/dl4IKI1.png",
     "/pokemon-quest": "https://i.imgur.com/ncrp81C.png",
     "/enter": "https://i.imgur.com/0Ndn4zJ.png",
+    "404": "https://i.imgur.com/BojlxTK.png",
   };
 
   let appBarStyling = location !== "/" && classes.appBar;
@@ -45,7 +46,13 @@ export default (props) => {
         }}
       >
         <Header appBarStyling={appBarStyling} />
-        <BannerImage heading={endpoints[location]} />
+        <BannerImage
+          heading={
+            endpoints.hasOwnProperty(location)
+              ? endpoints[location]
+              : endpoints["404"]
+          }
+        />
         <Grid
           item
           xs={12}
