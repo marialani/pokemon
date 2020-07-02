@@ -303,4 +303,5 @@ export const pokemonListDescription = [
   "A mystical POKÉMON that exudes a gentle aura. Has the ability to change climate conditions.",
   "An extremely rarely seen marine POKÉMON. Its intelligence is said to match that of humans.",
   "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.",
+  "Apparently, it appears only to those people who are pure of heart and have a strong desire to see it.",
 ];

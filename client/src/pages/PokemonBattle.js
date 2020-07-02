@@ -4,8 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    width: "75%",
+    width: "100%",
     height: "auto",
+    objectFit: "contain",
   },
   videoDiv: {
     backgroundColor: "black",
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   comingSoon: {
     position: "absolute",
     zIndex: "1",
-    width: "50vw",
+    width: "60%",
     transform: "rotate(-20deg)",
   },
 }));

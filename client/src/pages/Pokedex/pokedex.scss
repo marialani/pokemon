@@ -429,6 +429,10 @@ $dark-black: #111111;
   color: $black;
 }
 
+#nb:hover {
+  filter: drop-shadow(5px 5px 5px #e6bf00) drop-shadow(-5px -5px 5px #e6bf00);
+}
+
 #cross {
   position: absolute;
   z-index: 130;

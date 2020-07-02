@@ -3,70 +3,37 @@ import "./pokedex.scss";
 import { pokemonList, pokemonListDescription } from "./pokemonData";
 
 const Pokedex = () => {
-  const [number, setNumber] = useState("");
-  const [pokemonTextHeading, setPokemonTextHeading] = useState("");
-  const [pokemonTextBody, setPokemonTextBody] = useState("");
-  const [pokemonScreen, setPokemonScreen] = useState("");
+  const [number, setNumber] = useState(0);
+  const [isOn, setIsOn] = useState(false);
+
+  const pokemonTextHeading = isOn ? pokemonList[number] : "";
+  const pokemonTextBody = isOn ? pokemonListDescription[number] : "";
+  const pokemonScreen = isOn
+    ? "assets/images/img/pokedex/pokemon/" + pokemonList[number] + ".jpg"
+    : "";
 
   function handleOnButtonClick() {
-    setNumber(1);
-    setPokemonTextHeading(pokemonList[0]);
-    setPokemonTextBody(pokemonListDescription[0]);
-    setPokemonScreen(
-      "assets/images/img/pokedex/pokemon/" + pokemonList[0] + ".jpg"
-    );
+    setIsOn(!isOn);
   }
-  // nb - cb functions to avoid batch calls
+
   function handlePlusPokemonClick() {
-    if (number === 151) {
-      setNumber(1);
-      setPokemonTextHeading(pokemonList[0]);
-      setPokemonTextBody(pokemonListDescription[0]);
-      setPokemonScreen(
-        "assets/images/img/pokedex/pokemon/" + pokemonList[0] + ".jpg"
-      );
+    if (number === 150) {
+      setNumber(0);
     } else {
       setNumber((number) => number + 1);
-      setPokemonTextHeading(
-        pokemonList[pokemonList.indexOf(pokemonTextHeading) + 1]
-      );
-      setPokemonTextBody(
-        pokemonListDescription[
-          pokemonListDescription.indexOf(pokemonTextBody) + 1
-        ]
-      );
-      setPokemonScreen(
-        "assets/images/img/pokedex/pokemon/" +
-          pokemonList[pokemonList.indexOf(pokemonTextHeading) + 1] +
-          ".jpg"
-      );
     }
   }
 
   function handleMinusPokemonClick() {
-    if (number === 1) {
-      setNumber(151);
-      setPokemonTextHeading(pokemonList[150]);
-      setPokemonTextBody(pokemonListDescription[150]);
-      setPokemonScreen(
-        "assets/images/img/pokedex/pokemon/" + pokemonList[150] + ".jpg"
-      );
+    if (number === 0) {
+      setNumber(150);
     } else {
       setNumber((number) => number - 1);
-      setPokemonTextHeading(
-        pokemonList[pokemonList.indexOf(pokemonTextHeading) - 1]
-      );
-      setPokemonTextBody(
-        pokemonListDescription[
-          pokemonListDescription.indexOf(pokemonTextBody) - 1
-        ]
-      );
-      setPokemonScreen(
-        "assets/images/img/pokedex/pokemon/" +
-          pokemonList[pokemonList.indexOf(pokemonTextHeading) - 1] +
-          ".jpg"
-      );
     }
+  }
+
+  function handleChange(e) {
+    setNumber(parseInt(e.target.value) - 1);
   }
 
   return (
@@ -109,8 +76,9 @@ const Pokedex = () => {
               id="nb"
               type="text"
               name="howmuch"
-              value={number}
+              value={isOn ? number + 1 : ""}
               onInput="updateIdPokemon(this.value)"
+              onChange={handleChange}
             />
           </div>
           <div id="cross">

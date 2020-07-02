@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   video: {
     width: "100%",
     height: "auto",
+    objectFit: "contain",
   },
   videoDiv: {
     backgroundColor: "black",
@@ -18,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
   continue: {
     position: "absolute",
     zIndex: "1",
-    right: "2rem",
-    bottom: "2rem",
-    width: "25vw",
+    right: "1rem",
+    bottom: "1rem",
+    width: "16vw",
     outline: "none",
     backgroundColor: "whitesmoke",
     borderRadius: "5%",
