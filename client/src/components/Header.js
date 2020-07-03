@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { AppBar, IconButton, Toolbar, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -52,8 +52,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Header({ appBarStyling }) {
   const classes = useStyles();
 
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <AppBar
       position="static"
@@ -71,6 +69,7 @@ export default function Header({ appBarStyling }) {
           <Link component={RouterLink} to={paths.home}>
             <img
               src={"/assets/images/homepage/pokemon-ball.png"}
+              alt="pokeball"
               style={{
                 width: "3rem",
               }}

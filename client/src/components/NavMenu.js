@@ -79,6 +79,7 @@ export default function NavMenu() {
       </List> */}
       <img
         src="/assets/images/homepage/pokemon-logo.png"
+        alt="logo"
         style={{ maxWidth: "15vw", paddingBottom: "1.5rem" }}
       />
       <Divider className={classes.divider} />
@@ -89,6 +90,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/icons/explore-icon.png"
                 style={{ maxWidth: "6.5vh" }}
+                alt="explore icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>
@@ -105,6 +107,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/icons/card-match.png"
                 style={{ maxWidth: "6vh" }}
+                alt="card match icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>
@@ -121,6 +124,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/pokemon-card.jpg"
                 style={{ maxWidth: "3.4vh" }}
+                alt="pokemon card icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>
@@ -137,6 +141,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/icons/outline-icon.png"
                 style={{ maxWidth: "6vh" }}
+                alt="who's that pokemon icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>
@@ -153,6 +158,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/icons/pokedex-icon.png"
                 style={{ maxWidth: "2.8vh" }}
+                alt="pokedex icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>
@@ -169,6 +175,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/icons/fight-icon.png"
                 style={{ maxWidth: "3.6vh" }}
+                alt="fight icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>
@@ -185,6 +192,7 @@ export default function NavMenu() {
               <img
                 src="assets/images/homepage/icons/quest-icon.png"
                 style={{ maxWidth: "3.8vh" }}
+                alt="quest icon"
               />
             </ListItemIcon>
             <ListItemText className={classes.listItemText}>

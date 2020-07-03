@@ -9,6 +9,7 @@ const EnterButton = () => {
       <button className="startBtn2">
         <img
           className="enter"
+          alt="enter button"
           src="https://i.imgur.com/QZCngdl.png"
           style={{
             position: "absolute",

@@ -61,7 +61,7 @@ const Pokedex = () => {
           <div id="border-screen">
             <div id="button-top1"></div>
             <div id="button-top2"></div>
-            <div id="button-bottom" onClick="changePicturePokemon()"></div>
+            <div id="button-bottom"></div>
             <p className="selectDisable">&equiv;&equiv;</p>
           </div>
           <div id="screen">
@@ -77,7 +77,6 @@ const Pokedex = () => {
               type="text"
               name="howmuch"
               value={isOn ? number + 1 : ""}
-              onInput="updateIdPokemon(this.value)"
               onChange={handleChange}
             />
           </div>
@@ -85,13 +84,13 @@ const Pokedex = () => {
             <div id="mid-cross">
               <div id="mid-circle"></div>
             </div>
-            <div id="top-cross" onClick="increaseIdPokemon()">
+            <div id="top-cross">
               <div id="upC"></div>
             </div>
             <div id="right-cross">
               <div id="rightC"></div>
             </div>
-            <div id="bot-cross" onClick="decreaseIdPokemon()">
+            <div id="bot-cross">
               <div id="downC"></div>
             </div>
             <div id="left-cross">

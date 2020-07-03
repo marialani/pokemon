@@ -69,6 +69,7 @@ export default function AboutModal({ logMeIn }) {
         <img
           className="about"
           src="https://i.imgur.com/I7ihXYa.png"
+          alt="about button"
           style={{
             position: "absolute",
             top: "50%",

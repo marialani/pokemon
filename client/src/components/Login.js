@@ -77,6 +77,7 @@ export default function SpringModal() {
     <>
       <img
         src="https://i.imgur.com/J2PBxHj.png"
+        alt="login"
         className={classes.loginImg}
         onClick={handleOpen}
       />

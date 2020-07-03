@@ -48,6 +48,7 @@ const GameBoyIntro = () => {
         <img
           src="/assets/images/buttons/Continue_Button.png"
           className={classes.continue}
+          alt="continue button"
         />
       </Link>
       <video autoPlay className={classes.video}>

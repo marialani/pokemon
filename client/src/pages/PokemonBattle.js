@@ -35,6 +35,7 @@ const PokemonBattle = () => {
     >
       <img
         src="https://i.imgur.com/3nFakXO.png"
+        alt="coming soon"
         className={classes.comingSoon}
       />
 
@@ -42,6 +43,7 @@ const PokemonBattle = () => {
         autoPlay
         className={classes.image}
         src="/assets/images/animatedgifs/pokemon-battle.gif"
+        alt="pokemon battle"
       />
     </Grid>
   );

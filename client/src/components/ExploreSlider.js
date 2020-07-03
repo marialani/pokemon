@@ -9,9 +9,6 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Zoom from "@material-ui/core/Zoom";
 import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import EditIcon from "@material-ui/icons/Edit";
-import UpIcon from "@material-ui/icons/KeyboardArrowUp";
 import { green } from "@material-ui/core/colors";
 import Box from "@material-ui/core/Box";
 
@@ -63,9 +60,6 @@ const useStyles = makeStyles((theme) => ({
     right: "1rem",
     background:
       "radial-gradient(circle, white 10%, whitesmoke 25%, silver 85%, grey 100%)",
-
-    // maxWidth: "5vw",
-    // height: "auto",
   },
   fabGreen: {
     color: theme.palette.common.white,
@@ -102,66 +96,66 @@ export default function FloatingActionButtonZoom() {
 
   const fabs = [
     {
-      color: "yellow",
       className: classes.fab,
       icon: (
         <img
           src="assets/images/homepage/icons/card-match.png"
+          alt="card match icon"
           style={{ maxWidth: "6vh" }}
         />
       ),
       label: "pokemon cards",
     },
     {
-      color: "yellow",
       className: classes.fab,
       icon: (
         <img
           src="assets/images/homepage/pokemon-card.jpg"
+          alt="pokemon card icon"
           style={{ maxWidth: "3.4vh" }}
         />
       ),
       label: "pokemon card",
     },
     {
-      color: "yellow",
       className: clsx(classes.fab, classes.fabGreen),
       icon: (
         <img
           src="assets/images/homepage/icons/outline-icon.png"
+          alt="who's that pokemon icon"
           style={{ maxWidth: "6vh" }}
         />
       ),
       label: "who's that pokemon",
     },
     {
-      color: "yellow",
       className: classes.fab,
       icon: (
         <img
           src="assets/images/homepage/icons/pokedex-icon.png"
+          alt="pokedex icon"
           style={{ maxWidth: "2.8vh" }}
         />
       ),
       label: "pokedex",
     },
     {
-      color: "yellow",
       className: classes.fab,
       icon: (
         <img
           src="assets/images/homepage/icons/fight-icon.png"
+          alt="fight icon"
           style={{ maxWidth: "3.6vh" }}
         />
       ),
       label: "pokemon fight",
     },
     {
-      color: "yellow",
       className: clsx(classes.fab, classes.fabGreen),
       icon: (
         <img
           src="assets/images/homepage/icons/quest-icon.png"
+          alt="quest icon"
           style={{ maxWidth: "3.8vh" }}
         />
       ),
@@ -182,7 +176,6 @@ export default function FloatingActionButtonZoom() {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          centered
           variant="scrollable"
           scrollButtons="on"
           aria-label="action tabs"

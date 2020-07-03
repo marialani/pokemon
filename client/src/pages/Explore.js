@@ -5,10 +5,7 @@ import ExploreSlider from "../components/ExploreSlider";
 
 const Explore = () => {
   return (
-    <Grid container item xs={12}>
-      <Grid item xs={12} style={{ paddingTop: "2rem" }}>
-        Explore page
-      </Grid>
+    <Grid container item xs={12} style={{ paddingTop: "3rem" }}>
       <Grid
         item
         xs={2}

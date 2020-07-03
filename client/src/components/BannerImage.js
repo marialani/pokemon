@@ -28,8 +28,12 @@ const BannerImage = ({ heading }) => {
   const classes = useStyles();
   return (
     <Grid className={classes.grid}>
-      <img src="assets/images/banner.png" className={classes.bannerImg} />
-      <img className={classes.headerText} src={heading} />
+      <img
+        src="assets/images/banner.png"
+        className={classes.bannerImg}
+        alt="page heading"
+      />
+      <img className={classes.headerText} src={heading} alt="heading" />
     </Grid>
   );
 };

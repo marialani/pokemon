@@ -63,6 +63,7 @@ export default function Homepage() {
       >
         <img
           src={"/assets/images/homepage/Pokemon-logo-gcea.png"}
+          alt="logo"
           style={{
             width: "30vw",
             alignSelf: "flex-start",

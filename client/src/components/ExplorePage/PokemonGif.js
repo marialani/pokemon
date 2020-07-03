@@ -5,6 +5,7 @@ const PokemonGif = ({ image }) => {
     <img
       style={{ maxWidth: "100%", height: "auto", padding: "0.75rem" }}
       src={image}
+      alt="pokemon gif"
     />
   );
 };
