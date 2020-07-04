@@ -16,7 +16,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  aboutModalImg: {
+    width: "40%",
+    padding: "1.5rem 0",
   },
 }));
 
@@ -95,7 +102,27 @@ export default function AboutModal({ logMeIn }) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="spring-modal-title">About Modal</h2>
+            <img
+              src="assets/images/leaves.jpg"
+              alt="leaves"
+              style={{ width: "25%", position: "absolute", top: 0, left: 0 }}
+            />
+            <img
+              src="assets/images/leaves.jpg"
+              alt="leaves"
+              style={{
+                width: "25%",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                transform: "scaleX(-1)",
+              }}
+            />
+            <img
+              className={classes.aboutModalImg}
+              src="https://i.imgur.com/I7ihXYa.png"
+              alt="about"
+            />
             <p id="spring-modal-description">content tbc.</p>
           </div>
         </Fade>
