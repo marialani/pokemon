@@ -5,18 +5,11 @@ import ExploreSlider from "../components/ExploreSlider";
 
 const Explore = () => {
   return (
-    <Grid
-      container
-      // justify="center"
-      item
-      xs={12}
-      style={{ paddingTop: "3rem" }}
-    >
+    <Grid container item xs={12} style={{ paddingTop: "3rem" }}>
       <Grid
         item
         xs={12}
         container
-        // direction="column"
         justify="center"
         alignItems="center"
         style={{ paddingRight: "4%" }}
