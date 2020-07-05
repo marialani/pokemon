@@ -19,10 +19,10 @@
     "express-graphql": "^0.9.0",
     "graphql": "^15.1.0",
     "mongoose": "^5.9.20",
+    "morgan": "^1.10.0",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.4"
   }
 }

@@ -47,7 +47,7 @@ mongoose.connection
 app.use(bodyParser.json());
 
 // Log requests to make error identification easier
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 
 app.use(
   "/graphql",
