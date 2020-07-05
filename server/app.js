@@ -2,7 +2,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-require("dotenv");
+require("dotenv").config();
 
 const graphqlHTTP = require("express-graphql");
 const schema = require("./schema/schema");
@@ -10,7 +10,19 @@ const schema = require("./schema/schema");
 const express = require("express");
 const app = express();
 
-// let sendPokemon = require("./models/dbInit/sendPokemon");
+// CORS Headers => Required for cross-origin/ cross-server communication
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS"
+  );
+  next();
+});
 
 mongoose.Promise = global.Promise;
 
@@ -27,44 +39,31 @@ mongoose.connection
     console.log("connected to db");
     // done();
   })
-  .on("error", () => {
+  .on("error", (error) => {
     console.log("Connection error: ", error);
   });
 // });
-
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: process.env.NODE_ENV === "development",
-  })
-);
-
-// sendPokemon();
 
 app.use(bodyParser.json());
 
 // Log requests to make error identification easier
 app.use(morgan("dev"));
 
-// CORS Headers => Required for cross-origin/ cross-server communication
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS"
-  );
-  next();
-});
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 // Backend routes
 app.use("/api", require("./routes/routes"));
+
+// let sendPokemon = require("./models/dbInit/sendPokemon");
+// sendPokemon();
 
 module.exports = app;

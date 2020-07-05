@@ -9,6 +9,7 @@ const {
   GraphQLSchema,
   GraphQLList,
   GraphQLBoolean,
+  GraphQLNonNull,
 } = graphql;
 
 // Define types, define relationships, define root queries
@@ -49,7 +50,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         // code to get data from db
-        args.id; // use this to query db
+        return args.id; // use this to query db
       },
     },
   },
@@ -67,12 +68,12 @@ const Mutations = new GraphQLObjectType({
     addPokemon: {
       type: PokemonType,
       args: {
-        name: { type: GraphQLString },
-        weight: { type: GraphQLString },
-        front_image: { type: GraphQLString },
-        back_image: { type: GraphQLString },
-        moves: { type: GraphQLString },
-        type: { type: GraphQLString },
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        weight: { type: new GraphQLNonNull(GraphQLString) },
+        front_image: { type: new GraphQLNonNull(GraphQLString) },
+        back_image: { type: new GraphQLNonNull(GraphQLString) },
+        moves: { type: new GraphQLNonNull(GraphQLString) },
+        type: { type: new GraphQLNonNull(GraphQLString) },
       },
       // let newPokemon = new PokemonDataEntry({
 
