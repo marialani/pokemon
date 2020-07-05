@@ -58,8 +58,7 @@ export default (props) => {
           xs={12}
           container
           style={{
-            background:
-              "url(https://veekun.com/static/pokedex/downloads/red-green.png) repeat",
+            background: "url(assets/images/app-bkg.png) repeat",
             flexGrow: "1",
             padding: "0 7vw",
           }}

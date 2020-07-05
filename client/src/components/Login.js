@@ -144,7 +144,7 @@ export default function LoginModal({ history }) {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", display: "contents" }}>
       <img
         src="https://i.imgur.com/J2PBxHj.png"
         alt="login"
