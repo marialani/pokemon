@@ -1,5 +1,7 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+// import React from "react";
+import React, { lazy, Suspense } from "react";
+import Loading from "./components/Loading";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -11,12 +13,13 @@ import Error404 from "./pages/Error404";
 import paths from "./constants/paths";
 import theme from "./theme";
 import Explore from "./pages/Explore";
-import GameBoyIntro from "./pages/GameBoyIntro";
-import TradingCards from "./pages/TradingCards";
 import PokemonBattle from "./pages/PokemonBattle";
 import PokemonQuest from "./pages/PokemonQuest";
 import Pokedex from "./pages/Pokedex/Pokedex";
 import CardMatch from "./pages/CardMatch";
+import WhosThatPokemon from "./pages/WhosThatPokemon";
+const TradingCards = lazy(() => import("./pages/TradingCards"));
+const GameBoyIntro = lazy(() => import("./pages/GameBoyIntro"));
 
 // apollo client setup
 const client = new ApolloClient({
@@ -49,13 +52,36 @@ function App() {
                 <Explore />
               </Route>
               <Route path={paths.tradingCards} exact>
-                <TradingCards />
+                <Suspense
+                  fallback={
+                    <Loading
+                      image="assets/images/loading/HomepageLoading.gif"
+                      background="black"
+                      width="100%"
+                    />
+                  }
+                >
+                  <TradingCards />
+                </Suspense>
               </Route>
-              {/* <Route path={paths.cardMatch} exact>
+              <Route path={paths.cardMatch} exact>
                 <CardMatch />
-              </Route> */}
+              </Route>
+              <Route path={paths.whosThatPokemon} exact>
+                <WhosThatPokemon />
+              </Route>
               <Route path={paths.enter} exact>
-                <GameBoyIntro />
+                <Suspense
+                  fallback={
+                    <Loading
+                      image="assets/images/loading/HomepageLoading.gif"
+                      background="black"
+                      width="100%"
+                    />
+                  }
+                >
+                  <GameBoyIntro />
+                </Suspense>
               </Route>
               <Route path={paths.pokemonBattle} exact>
                 <PokemonBattle />
