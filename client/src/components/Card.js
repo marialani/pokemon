@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSpring, animated as a } from "react-spring";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -42,30 +42,53 @@ const useStyles = makeStyles({
   },
 });
 
-const Card = ({ cardId, flipAll }) => {
+export const FlippableCard = ({ cardId }) => {
+  const [flipped, set] = useState(false);
+  return <Card cardId={cardId} flipped={flipped} set={set} />;
+};
+
+export const Card = ({ cardId, flipped, set }) => {
   const classes = useStyles();
 
-  const [flipped, set] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
     config: { mass: 2, tension: 500, friction: 80 },
   });
 
-  useEffect(() => {
-    set(flipAll);
-  }, [flipAll]);
-
-  let cardNumber = window.location.pathname == "/trading-cards" && (
-    <h6 style={{ fontSize: "1.2rem", alignSelf: "flex-start", margin: 0 }}>
+  let cardNumber = window.location.pathname === "/trading-cards" && (
+    <h6
+      style={{
+        fontSize: "1.2rem",
+        alignSelf: "flex-start",
+        margin: 0,
+        color: "#3564AD",
+      }}
+    >
       #{cardId}
     </h6>
+  );
+
+  let cardImage = window.location.pathname === "/card-match" && (
+    <a.div
+      className={`${classes.c}`}
+      style={{
+        width: "100%",
+        opacity: opacity.interpolate((o) => 1 - o),
+        transform,
+      }}
+    >
+      <img
+        src="assets/images/homepage/pokemon-card.jpg"
+        alt="pokemon card"
+        className={classes.image}
+      />
+    </a.div>
   );
 
   return (
     <Grid
       item
-      flexDirection="column"
       xs={12}
       sm={6}
       md={3}
@@ -74,19 +97,7 @@ const Card = ({ cardId, flipAll }) => {
       onClick={() => set((state) => !state)}
     >
       {cardNumber}
-      <a.div
-        className={`${classes.c}`}
-        style={{
-          width: "100%",
-          opacity: opacity.interpolate((o) => 1 - o),
-          transform,
-        }}
-      >
-        <img
-          src="assets/images/homepage/pokemon-card.jpg"
-          className={classes.image}
-        />
-      </a.div>
+      {cardImage}
       <a.div
         className={`${classes.c}`}
         style={{
@@ -97,6 +108,7 @@ const Card = ({ cardId, flipAll }) => {
       >
         <img
           src={`assets/images/cards/${cardId}.jpg`}
+          alt="pokemon card"
           className={classes.image}
         />
       </a.div>
@@ -104,4 +116,4 @@ const Card = ({ cardId, flipAll }) => {
   );
 };
 
-export default Card;
+// export default Card;

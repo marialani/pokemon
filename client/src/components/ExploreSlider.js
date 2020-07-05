@@ -216,38 +216,156 @@ export default function FloatingActionButtonZoom() {
         className={classes.tabBar}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <h5>TRADING CARDS</h5>
-          <p>View all of the original pokemon cards</p>
+          <Typography
+            color="primary"
+            variant="h5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "5vh 5vw 0 5vw",
+              textDecoration: "underline double rgba(230, 211, 0, 1)",
+            }}
+          >
+            TRADING CARDS
+          </Typography>
+          <Typography
+            color="primary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5vh 5vw",
+            }}
+          >
+            View all of the original pokemon cards
+          </Typography>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <h5>CARD MATCH</h5>
-          <p>
+          <Typography
+            color="primary"
+            variant="h5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "5vh 5vw 0 5vw",
+              textDecoration: "underline double rgba(230, 211, 0, 1)",
+            }}
+          >
+            CARD MATCH
+          </Typography>
+          <Typography
+            color="primary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5vh 5vw",
+            }}
+          >
             Find all of the matching pokemon card pairings before time runs out
-          </p>
+          </Typography>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <h5>WHO'S THAT POKEMON?</h5>
-          <p>
+          <Typography
+            color="primary"
+            variant="h5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "5vh 5vw 0 5vw",
+              textDecoration: "underline double rgba(230, 211, 0, 1)",
+            }}
+          >
+            WHO'S THAT POKEMON?
+          </Typography>
+          <Typography
+            color="primary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5vh 5vw",
+            }}
+          >
             A guessing game where you pick the correct pokemon from a list of
             options
-          </p>
+          </Typography>
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-          <h5>POKEDEX</h5>
-          <p>A mini encyclopedia housing the first generation of pokemon</p>
+          <Typography
+            color="primary"
+            variant="h5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "5vh 5vw 0 5vw",
+              textDecoration: "underline double rgba(230, 211, 0, 1)",
+            }}
+          >
+            POKEDEX
+          </Typography>
+          <Typography
+            color="primary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5vh 5vw",
+            }}
+          >
+            A mini encyclopedia housing the first generation of pokemon
+          </Typography>
         </TabPanel>
         <TabPanel value={value} index={4} dir={theme.direction}>
-          <h5>POKEMON BATTLE</h5>
-          <p>
+          <Typography
+            color="primary"
+            variant="h5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "5vh 5vw 0 5vw",
+              textDecoration: "underline double rgba(230, 211, 0, 1)",
+            }}
+          >
+            POKEMON BATTLE
+          </Typography>
+          <Typography
+            color="primary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5vh 5vw",
+            }}
+          >
             Choose your pokemon and go up against another trainer to win prizes
-          </p>
+          </Typography>
         </TabPanel>
         <TabPanel value={value} index={5} dir={theme.direction}>
-          <h5>POKEMON QUEST</h5>
-          <p>
+          <Typography
+            color="primary"
+            variant="h5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "5vh 5vw 0 5vw",
+              textDecoration: "underline double rgba(230, 211, 0, 1)",
+            }}
+          >
+            POKEMON QUEST
+          </Typography>
+          <Typography
+            color="primary"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5vh 5vw",
+            }}
+          >
             Become a world class pokemon trainer. Choose your starter pokemon
-            and travel through the map to gain the coveted title
-          </p>
+            and travel through the map to gain the coveted title{" "}
+          </Typography>
         </TabPanel>
       </SwipeableViews>
     </div>

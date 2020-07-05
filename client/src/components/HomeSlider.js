@@ -1,6 +1,6 @@
 import React from "react";
 import { Zoom } from "react-slideshow-image";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 
 import paths from "../constants/paths";
 const imgPaths = paths.homeImages;
@@ -14,10 +14,10 @@ const zoomOutProperties = {
   arrows: false,
 };
 
-const useStyles = makeStyles((theme) => ({}));
+// const useStyles = makeStyles((theme) => ({}));
 
 export default function HomeSlider() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <div
@@ -47,6 +47,7 @@ export default function HomeSlider() {
               background: "white",
             }}
             src={"/assets/images/homepage/" + path}
+            alt="pokemon tv show"
           />
         ))}
       </Zoom>
