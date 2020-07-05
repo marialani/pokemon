@@ -47,7 +47,7 @@ mongoose.connection
 app.use(bodyParser.json());
 
 // Log requests to make error identification easier
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 app.use(
   "/graphql",
@@ -58,7 +58,7 @@ app.use(
 );
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 // Backend routes
 app.use("/api", require("./routes/routes"));
