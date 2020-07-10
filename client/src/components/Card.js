@@ -42,12 +42,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const FlippableCard = ({ cardId }) => {
-  const [flipped, set] = useState(false);
-  return <Card cardId={cardId} flipped={flipped} set={set} />;
-};
-
-export const Card = ({ cardId, flipped, set }) => {
+const Card = ({ cardId, flipped, set }) => {
   const classes = useStyles();
 
   const { transform, opacity } = useSpring({
@@ -94,7 +89,9 @@ export const Card = ({ cardId, flipped, set }) => {
       md={3}
       lg={2}
       className={classes.grid}
-      onClick={() => set((state) => !state)}
+      onClick={() => {
+        set((state) => !state);
+      }}
     >
       {cardNumber}
       {cardImage}
@@ -116,4 +113,4 @@ export const Card = ({ cardId, flipped, set }) => {
   );
 };
 
-// export default Card;
+export default Card;

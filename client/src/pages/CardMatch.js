@@ -1,26 +1,68 @@
-import React, { useState } from "react";
-import { FlippableCard } from "../components/Card";
+import React, { useState, useEffect } from "react";
+import Card from "../components/Card";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import randomiseCards from "../utils/randomiseCards";
+
+// randomise cardArr numbers, 1-156
+// reorganise grid layout of the game
+// create state to disable click event between settimeouts
+// bug fix double click
+// create confetti-esque celebration when all matches found
+//// create sound effects for matches found
+//// possibly and time taken to complete the game
 
 const CardMatch = () => {
-  // const [isFlipped, setIsFlipped] = useState(false);
-
-  function handleClick() {
-    console.log(this.props);
-  }
-
   const cardArr1 = [...Array(10).keys()].map((val) => val + 1);
   const cardArr2 = [...Array(10).keys()].map((val) => val + 1);
   const cardArr = [...cardArr1, ...cardArr2];
-  // check whether card is flipped
-  // store which ones have been solved
-  // if match = not render/disappear
-  // if dont match react spring turn back over
-  // --- hard code list of cards to disappear as a test
-  // test for win condition (once every card disappeared)
 
-  // set={() => {}}
+  const [newCardArr, setNewCardArr] = useState([]);
+
+  useEffect(() => {
+    setNewCardArr(randomiseCards(cardArr));
+  }, []);
+
+  // console.log(newCardArr);
+
+  const [cardsStatus, setCardsStatus] = useState([
+    ...Array(cardArr.length).fill(false),
+  ]);
+  const [lastClickedIndex, setLastClickedIndex] = useState();
+  const [found, setFound] = useState([]);
+
+  const flipCard = (indexToFlip, cardId) => {
+    // console.log(
+    //   `flipCard called with indexToFlip ${indexToFlip}, cardId ${cardId}, lastClickedIndex ${lastClickedIndex}`
+    // );
+    if (lastClickedIndex == indexToFlip) {
+      return;
+    }
+    if (lastClickedIndex === undefined) {
+      cardsStatus[indexToFlip] = true;
+      setLastClickedIndex(indexToFlip);
+    } else {
+      if (newCardArr[lastClickedIndex] === newCardArr[indexToFlip]) {
+        // console.log("match");
+        setFound(() => found.concat([cardId]));
+        // console.log("found", found);
+        cardsStatus[lastClickedIndex] = true;
+        cardsStatus[indexToFlip] = true;
+      } else {
+        // console.log("no-match");
+        setTimeout(() => {
+          const newCardStatus = [...cardsStatus];
+          newCardStatus[lastClickedIndex] = false;
+          newCardStatus[indexToFlip] = false;
+          setCardsStatus(newCardStatus);
+        }, 1000);
+        cardsStatus[indexToFlip] = true;
+      }
+      setLastClickedIndex(undefined);
+    }
+    setCardsStatus(cardsStatus);
+    // console.log("current array status", currentState);
+  };
 
   return (
     <div
@@ -51,10 +93,10 @@ const CardMatch = () => {
       >
         Each card will have a matching pair somewhere on the board.
         <br />
-        <br />
+        {/* <br />
         Select the level of difficulty using the drop down below. There are 3
         options 'Easy', 'Medium', or 'Hard'.
-        <br />
+        <br /> */}
         <br />
         Flip a card and try to find its' matching pair
         <br />
@@ -63,8 +105,8 @@ const CardMatch = () => {
         and you may try again.
         <br />
         <br />
-        When you find a match they will be are removed from the board until the
-        board is cleared.
+        When all of the matching pairs have been found, you have completed the
+        game!
       </Typography>
       <Grid
         container
@@ -72,13 +114,16 @@ const CardMatch = () => {
         style={{
           paddingTop: "1rem",
           backgroundImage: "url(" + "assets/images/card-match-bkg.png" + ")",
-          // backgroundPosition: "center",
           backgroundSize: "25%",
-          // backgroundRepeat: "no-repeat",
         }}
       >
-        {cardArr.map((card, index) => (
-          <FlippableCard key={index} cardId={card} onClick={handleClick} />
+        {newCardArr.map((cardId, index) => (
+          <Card
+            key={index}
+            cardId={cardId}
+            flipped={cardsStatus[index]}
+            set={() => flipCard(index, cardId)}
+          />
         ))}
       </Grid>
     </div>
@@ -86,4 +131,3 @@ const CardMatch = () => {
 };
 
 export default CardMatch;
-//
