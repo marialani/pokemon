@@ -74,7 +74,7 @@ function App() {
                 <Suspense
                   fallback={
                     <Loading
-                      image="assets/images/loading/HomepageLoading.gif"
+                      // image="assets/images/loading/HomepageLoading.gif"
                       background="black"
                       width="100%"
                     />

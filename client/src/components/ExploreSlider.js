@@ -11,6 +11,8 @@ import Zoom from "@material-ui/core/Zoom";
 import Fab from "@material-ui/core/Fab";
 import { green } from "@material-ui/core/colors";
 import Box from "@material-ui/core/Box";
+import { Link } from "react-router-dom";
+import paths from "../constants/paths";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
     background:
       "radial-gradient(circle, white 10%, whitesmoke 25%, silver 85%, grey 100%)",
   },
+  fabLink: {
+    zIndex: 2,
+  },
   fabGreen: {
     color: theme.palette.common.white,
     backgroundColor: green[500],
@@ -97,6 +102,7 @@ export default function FloatingActionButtonZoom() {
   const fabs = [
     {
       className: classes.fab,
+      linkTo: paths.tradingCards,
       icon: (
         <img
           src="assets/images/homepage/icons/card-match.png"
@@ -108,6 +114,7 @@ export default function FloatingActionButtonZoom() {
     },
     {
       className: classes.fab,
+      linkTo: paths.cardMatch,
       icon: (
         <img
           src="assets/images/homepage/pokemon-card.jpg"
@@ -119,6 +126,7 @@ export default function FloatingActionButtonZoom() {
     },
     {
       className: clsx(classes.fab, classes.fabGreen),
+      linkTo: paths.whosThatPokemon,
       icon: (
         <img
           src="assets/images/homepage/icons/outline-icon.png"
@@ -130,6 +138,7 @@ export default function FloatingActionButtonZoom() {
     },
     {
       className: classes.fab,
+      linkTo: paths.pokedex,
       icon: (
         <img
           src="assets/images/homepage/icons/pokedex-icon.png"
@@ -141,6 +150,7 @@ export default function FloatingActionButtonZoom() {
     },
     {
       className: classes.fab,
+      linkTo: paths.pokemonBattle,
       icon: (
         <img
           src="assets/images/homepage/icons/fight-icon.png"
@@ -152,6 +162,7 @@ export default function FloatingActionButtonZoom() {
     },
     {
       className: clsx(classes.fab, classes.fabGreen),
+      linkTo: paths.pokemonQuest,
       icon: (
         <img
           src="assets/images/homepage/icons/quest-icon.png"
@@ -205,7 +216,9 @@ export default function FloatingActionButtonZoom() {
             className={fab.className}
             color={fab.color}
           >
-            {fab.icon}
+            <Link to={fab.linkTo} className={classes.fabLink}>
+              {fab.icon}
+            </Link>
           </Fab>
         </Zoom>
       ))}
@@ -262,7 +275,7 @@ export default function FloatingActionButtonZoom() {
               padding: "5vh 5vw",
             }}
           >
-            Find all of the matching pokemon card pairings before time runs out
+            Find all of the matching pokemon card pairs
           </Typography>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
@@ -364,7 +377,7 @@ export default function FloatingActionButtonZoom() {
             }}
           >
             Become a world class pokemon trainer. Choose your starter pokemon
-            and travel through the map to gain the coveted title{" "}
+            and travel through the map to gain the coveted title
           </Typography>
         </TabPanel>
       </SwipeableViews>
