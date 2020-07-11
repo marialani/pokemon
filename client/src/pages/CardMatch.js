@@ -21,7 +21,7 @@ const CardMatch = () => {
 
   useEffect(() => {
     setNewCardArr(randomiseCards(cardArr));
-  }, []);
+  }, [cardArr]);
 
   // console.log(newCardArr);
 
@@ -35,7 +35,7 @@ const CardMatch = () => {
     // console.log(
     //   `flipCard called with indexToFlip ${indexToFlip}, cardId ${cardId}, lastClickedIndex ${lastClickedIndex}`
     // );
-    if (lastClickedIndex == indexToFlip) {
+    if (lastClickedIndex === indexToFlip) {
       return;
     }
     if (lastClickedIndex === undefined) {
@@ -112,7 +112,7 @@ const CardMatch = () => {
         justify="center"
         style={{
           paddingTop: "1rem",
-          backgroundImage: "url(" + "assets/images/card-match-bkg.png" + ")",
+          backgroundImage: "url(assets/images/card-match-bkg.png)",
           backgroundSize: "25%",
         }}
       >

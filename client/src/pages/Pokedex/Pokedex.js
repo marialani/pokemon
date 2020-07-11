@@ -187,7 +187,7 @@ const Pokedex = () => {
       </div>
       <div
         style={{
-          backgroundImage: "url(" + "/assets/images/grass.gif" + ")",
+          backgroundImage: "url(/assets/images/grass.gif)",
           backgroundSize: "25%",
           backgroundRepeat: "repeat-x",
           position: "absolute",

@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import paths from "../constants/paths";
-import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";

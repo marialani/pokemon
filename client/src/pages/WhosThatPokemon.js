@@ -31,6 +31,7 @@ const WhosThatPokemon = () => {
         <img
           src="assets/images/animatedgifs/flashing-bkg.gif"
           style={{ width: "50%", height: "50%" }}
+          alt="spotlight"
         />
       </Grid>
     </>
