@@ -12,7 +12,11 @@ const Loading = ({ image, background, width }) => {
         width: "100%",
       }}
     >
-      <img src={image} style={{ width: { width }, height: "auto" }} />
+      <img
+        // src="https://i.gifer.com/JO4d.gif"
+        src='https://cdn.dribbble.com/users/1771704/screenshots/6124573/attachments/1313609/pokeball.gif'
+        style={{ width: { width }, height: "auto" }}
+      />
     </div>
   );
 };

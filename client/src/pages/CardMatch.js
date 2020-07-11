@@ -98,15 +98,14 @@ const CardMatch = () => {
         options 'Easy', 'Medium', or 'Hard'.
         <br /> */}
         <br />
-        Flip a card and try to find its' matching pair
+        Flip a card and then try to find its' match
         <br />
         <br />
         If you don't find a match, the selected cards will be flipped back over
         and you may try again.
         <br />
         <br />
-        When all of the matching pairs have been found, you have completed the
-        game!
+        When all of the pairs have been found, you have completed the game!
       </Typography>
       <Grid
         container
