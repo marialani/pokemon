@@ -10,7 +10,7 @@ import randomiseCards from "../utils/randomiseCards";
 // bug fix double click
 // create confetti-esque celebration when all matches found
 //// create sound effects for matches found
-//// possibly and time taken to complete the game
+//// time taken to complete the game
 
 // const cardArr1 = [...Array(5).keys()].map((val) => val + 1);
 // const cardArr2 = [...Array(5).keys()].map((val) => val + 1);
@@ -20,25 +20,27 @@ const CardMatch = () => {
   const [newCardArr, setNewCardArr] = useState([]);
   const [lastClickedIndex, setLastClickedIndex] = useState();
   const [found, setFound] = useState([]);
-  const [numberOfPairs, setNumberOfPairs] = useState(5);
-  const [cardsStatus, setCardsStatus] = useState([
-    ...Array(numberOfPairs * 2).fill(false),
-  ]);
+  const [numberOfPairs, setNumberOfPairs] = useState(0);
+  const [cardsStatus, setCardsStatus] = useState(
+    numberOfPairs ? [...Array(numberOfPairs * 2).fill(false)] : []
+  );
 
   const cardArr = useMemo(() => {
-    const cardArr1 = [...Array(numberOfPairs).keys()].map((val) => val + 1);
-    const cardArr2 = [...Array(numberOfPairs).keys()].map((val) => val + 1);
-    return [...cardArr1, ...cardArr2];
+    if (numberOfPairs) {
+      const cardArr1 = [...Array(numberOfPairs).keys()].map((val) => val + 1);
+      const cardArr2 = [...Array(numberOfPairs).keys()].map((val) => val + 1);
+      return [...cardArr1, ...cardArr2];
+    }
+    return [];
   }, [numberOfPairs]);
 
   useEffect(() => {
     setNewCardArr(randomiseCards(cardArr));
     setCardsStatus([...Array(cardArr.length).fill(false)]);
+    return () => {
+      setNewCardArr([]);
+    };
   }, [cardArr]);
-
-  // console.log(newCardArr);
-  // console.log(cardArr);
-  console.log(typeof numberOfPairs);
 
   const flipCard = (indexToFlip, cardId) => {
     // console.log(
@@ -91,6 +93,38 @@ const CardMatch = () => {
       >
         Test your memory with this card matching game.
       </Typography>
+      <br />
+      <br />
+
+      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <label htmlFor="number of pairs">
+          <input
+            id="number of pairs"
+            type="number"
+            min="5"
+            max="10"
+            value={numberOfPairs}
+            onChange={(e) => {
+              if (
+                parseInt(e.target.value) > 4 &&
+                parseInt(e.target.value) < 11
+              ) {
+                setNumberOfPairs(parseInt(e.target.value));
+              }
+              return;
+            }}
+            style={{
+              color: "rgb(192, 163, 16)",
+              fontWeight: "700",
+              textAlign: "center",
+              backgroundColor: "rgb(64, 113, 177)",
+              border: "5px solid rgb(192, 163, 16)",
+              padding: "0.25rem 0.5rem",
+              borderRadius: "5px",
+            }}
+          />
+        </label>
+      </div>
       <Typography
         color="primary"
         style={{
@@ -100,29 +134,25 @@ const CardMatch = () => {
           padding: "5vh 5vw",
         }}
       >
+        Select the number of pairs that will appear on the board using the input
+        above.
+        <br />
+        You may select any number between 5 - 10.
+        <br />
+        The more cards on the board the harder the game will be!
+        <br />
+        <br />
         Each card will have a matching pair somewhere on the board.
         <br />
-        {/* <br />
-        Select the level of difficulty using the drop down below. There are 3
-        options 'Easy', 'Medium', or 'Hard'.
-        <br /> */}
-        <br />
-        Flip a card and then try to find its' match
+        Flip a card and then try to find its' match.
         <br />
         <br />
         If you don't find a match, the selected cards will be flipped back over
         and you may try again.
         <br />
-        <br />
         When all of the pairs have been found, you have completed the game!
       </Typography>
-      <input
-        type="number"
-        min="5"
-        max="10"
-        value={numberOfPairs}
-        onChange={(e) => setNumberOfPairs(parseInt(e.target.value))}
-      />
+
       <Grid
         container
         justify="center"
