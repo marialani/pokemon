@@ -157,7 +157,7 @@ const CardMatch = () => {
         container
         justify="center"
         style={{
-          paddingTop: "1rem",
+          margin: "1rem 0.5rem 0 0.5rem",
           backgroundImage: "url(assets/images/card-match-bkg.png)",
           backgroundSize: "25%",
         }}
