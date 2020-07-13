@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Card from "../components/Card";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -12,24 +12,33 @@ import randomiseCards from "../utils/randomiseCards";
 //// create sound effects for matches found
 //// possibly and time taken to complete the game
 
-const CardMatch = () => {
-  const cardArr1 = [...Array(10).keys()].map((val) => val + 1);
-  const cardArr2 = [...Array(10).keys()].map((val) => val + 1);
-  const cardArr = [...cardArr1, ...cardArr2];
+// const cardArr1 = [...Array(5).keys()].map((val) => val + 1);
+// const cardArr2 = [...Array(5).keys()].map((val) => val + 1);
+// const cardArr = [...cardArr1, ...cardArr2];
 
+const CardMatch = () => {
   const [newCardArr, setNewCardArr] = useState([]);
+  const [lastClickedIndex, setLastClickedIndex] = useState();
+  const [found, setFound] = useState([]);
+  const [numberOfPairs, setNumberOfPairs] = useState(5);
+  const [cardsStatus, setCardsStatus] = useState([
+    ...Array(numberOfPairs * 2).fill(false),
+  ]);
+
+  const cardArr = useMemo(() => {
+    const cardArr1 = [...Array(numberOfPairs).keys()].map((val) => val + 1);
+    const cardArr2 = [...Array(numberOfPairs).keys()].map((val) => val + 1);
+    return [...cardArr1, ...cardArr2];
+  }, [numberOfPairs]);
 
   useEffect(() => {
     setNewCardArr(randomiseCards(cardArr));
+    setCardsStatus([...Array(cardArr.length).fill(false)]);
   }, [cardArr]);
 
   // console.log(newCardArr);
-
-  const [cardsStatus, setCardsStatus] = useState([
-    ...Array(cardArr.length).fill(false),
-  ]);
-  const [lastClickedIndex, setLastClickedIndex] = useState();
-  const [found, setFound] = useState([]);
+  // console.log(cardArr);
+  console.log(typeof numberOfPairs);
 
   const flipCard = (indexToFlip, cardId) => {
     // console.log(
@@ -107,6 +116,13 @@ const CardMatch = () => {
         <br />
         When all of the pairs have been found, you have completed the game!
       </Typography>
+      <input
+        type="number"
+        min="5"
+        max="10"
+        value={numberOfPairs}
+        onChange={(e) => setNumberOfPairs(parseInt(e.target.value))}
+      />
       <Grid
         container
         justify="center"
